@@ -1,0 +1,30 @@
+/*Consulta para obtener tiempos
+select r.Rollo, w.Wrapper ,ws.DescripcionEstado, FechaRegistro, EndDate, dt.TiempoMin
+from Wrapper_DownTimes dt
+inner join Wrapper_Status ws on dt.IdWrapperStatus = ws.IdWrapper_Status
+inner join Rollos r on r.idRollo = dt.idRollo
+inner join Catalogo_Wrapper w on w.IdCatalogoWrapper = dt.IdWrapper
+where r.idRollo in (23630, 23598)
+order by r.idRollo asc */
+
+/*CONSULTA PARA DOWNTIME POR IDWRAPPER
+SELECT TOP (1000) [IdWrapper_DownTime]
+      ,[IdWrapper]
+      ,[IdWrapperStatus]
+      ,[FechaRegistro]
+      ,[StartDate]
+      ,[EndDate]
+      ,[TiempoMin]
+      ,[idRollo]
+  FROM [IOTrackingSystem].[dbo].[Wrapper_DownTimes]*/
+
+  /* CONSULTA PARA SABER EL TOTAL DE PIES Y ROLLOS POR ID CATALOGO WRAPPER
+  SELECT 
+    COUNT([idRollo]) AS TotalRollos,
+    SUM([Longitud_FT]) AS TotalPies,
+    [IdCatalogo_Wrapper]
+FROM [IOTrackingSystem].[dbo].[Rollos]
+WHERE IdCatalogo_Wrapper IN ( 33)
+  AND FechaHora BETWEEN '2024-11-11 06:00:00' AND '2024-11-17 06:00:00'
+GROUP BY [IdCatalogo_Wrapper]
+ORDER BY TotalRollos DESC;*/
